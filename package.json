@@ -1,0 +1,33 @@
+{
+  "name": "golden-book",
+  "version": "1.0.0",
+  "description": "Un livre d'or réalisé avec Node, Express et MySQL.",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "prod": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jvin042/golden-book.git"
+  },
+  "author": "Jérémy VINCENT",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/jvin042/golden-book/issues"
+  },
+  "homepage": "https://github.com/jvin042/golden-book#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "moment": "^2.29.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.29.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4"
+  }
+}
