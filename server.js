@@ -29,4 +29,4 @@ app.use(require('./middleware/flash'));
 
 app.use('/', messageRoute);
 
-app.listen(3000);
+app.listen(process.env.PORT);
