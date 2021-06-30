@@ -17,39 +17,43 @@
 </head>
 <body>
   <div class="ui main container">
-    <div class="ui icon message">
-      <i class="inbox icon"></i>
-      <div class="content">
-        <div class="header">
-          Départ de Jérémy
-        </div>
-        <p><%= process.env.MESSAGE %></p>
-      </div>
-    </div>
-    <% if (locals.flash && locals.flash.error) { %> 
-    <div class="ui negative message">
-      <%= flash.error %> 
-    </div>
-    <% } %> 
-    <% if (locals.flash && locals.flash.success) { %> 
-    <div class="ui positive message">
-      <%= flash.success %> 
-    </div>
-    <% } %>
+    
 
-<form action="/" method="post" class="ui form">
-  <div class="field">
-    <label>Nom</label>
-    <input type="text" name="name">
-  </div>
-  <div class="field">
-    <label for="message">Message</label>
-    <textarea name="message" id="message"></textarea>
-  </div>
-  <button type="submit" class="ui blue labeled submit icon button">
-    <i class="icon edit"></i>Envoyer
-  </button>
-</form>
+    <div class="ui attached message">
+      <div class="header">
+        <%= process.env.TITLE %>
+      </div>
+      <p><%= process.env.MESSAGE %></p>
+    </div>
+    <form action="/" method="post" class="ui form attached fluid segment">
+      <div class="field">
+        <label>Nom</label>
+        <input name="name" type="text" required>
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea name="message" required></textarea>
+      </div>
+      <div class="inline field">
+        <div class="ui checkbox">
+          <input type="checkbox" name="private">
+          <label for="terms">Envoyer le message en privé</label>
+        </div>
+      </div>
+      <button type="submit" class="ui blue labeled submit icon button">
+        <i class="icon edit"></i>Envoyer
+      </button>
+    </form>
+    <% if (locals.flash && locals.flash.error) { %> 
+      <div class="ui bottom attached negative message">
+        <i class="icon help"></i>
+      </div>
+      <% } %> 
+      <% if (locals.flash && locals.flash.success) { %> 
+      <div class="ui bottom attached positive message">
+        <%= flash.success %> 
+      </div>
+      <% } %>
 
 <div class="ui comments">
   <h3 class="ui dividing header">Messages</h3>

@@ -35,9 +35,30 @@ class Message {
     );
   }
 
+  static createPrivate(name, content, callback) {
+    connection.query(
+      'INSERT INTO messagesPrivate SET name = ?, content = ?, created_at = ?',
+      [name, content, new Date()],
+      (err, result) => {
+        if (err) throw err;
+        callback(result);
+      },
+    );
+  }
+
   static all(callback) {
     connection.query(
       'SELECT * FROM messages ORDER BY created_at DESC',
+      (err, rows) => {
+        if (err) throw err;
+        callback(rows.map((row) => new Message(row)));
+      },
+    );
+  }
+
+  static allPrivate(callback) {
+    connection.query(
+      'SELECT * FROM messagesPrivate ORDER BY created_at DESC',
       (err, rows) => {
         if (err) throw err;
         callback(rows.map((row) => new Message(row)));
